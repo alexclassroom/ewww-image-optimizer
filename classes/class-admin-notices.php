@@ -927,6 +927,8 @@ final class Admin_Notices extends Base {
 			$webhost = 'Kinsta';
 		} elseif ( \defined( 'WPNET_INIT_PLUGIN_VERSION' ) ) {
 			$webhost = 'WP NET';
+		} elseif ( ! empty( $_ENV['WPAAS_V2_SITE_ID'] ) ) {
+			$webhost = 'GoDaddy Managed';
 		} else {
 			return;
 		}

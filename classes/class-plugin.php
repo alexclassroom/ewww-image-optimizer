@@ -450,7 +450,7 @@ final class Plugin extends Base {
 		}
 		if ( $this->local->hosting_requires_api() ) {
 			$this->toggle_jpg_only_mode( $default_jpg_only_mode );
-			$this->debug_message( 'WPE/wp.com/pantheon/flywheel site, disabling tools' );
+			$this->debug_message( 'WPE/wp.com/pantheon/flywheel/godaddy site, disabling tools' );
 			return;
 		}
 		if ( ! $this->local->os_supported() ) {

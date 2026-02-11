@@ -3,7 +3,7 @@ Contributors: nosilver4u
 Donate link: https://ewww.io/donate/
 Tags: compress, convert, webp, resize, lazy load
 Tested up to: 6.9
-Stable tag: 8.3.1
+Stable tag: 8.4.0
 License: GPLv3
 
 Comprehensive image optimization that doesn't require a rocket science degree. Optimize images automatically for Faster Sites and Happy Visitors.
@@ -169,12 +169,13 @@ That's not a question, but since I made it up, I'll answer it. See this resource
 * Feature requests can be viewed and submitted on our [feedback portal](https://feedback.ewww.io/b/features)
 * If you would like to help translate this plugin in your language, [join the team](https://translate.wordpress.org/projects/wp-plugins/ewww-image-optimizer/)
 
-= 8.3.2 =
-*Release Date - TBD*
+= 8.4.0 =
+*Release Date - February 11, 2026*
 
 * added: ability to choose append or replace for naming of WebP images, props @adamewww
 * added: detection for GoDaddy managed WP hosting
 * improved: WebP renaming tool for converting from replacement naming to append and vice versa
+* fixed: WebP deletion tool does not update database records, props @adamewww
 * fixed: Lazy Load setting does not detect presence of Easy IO plugin
 * fixed: Easy IO domain not reset after site URL is updated
 * fixed: PHP warnings and notices

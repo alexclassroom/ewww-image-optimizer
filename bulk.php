@@ -1559,7 +1559,7 @@ function ewww_image_optimizer_media_scan( $hook = '' ) {
 			ewwwio_debug_message( "id: $selected_id and type: $mime" );
 			$attached_file = ( ! empty( $attachments_meta[ $selected_id ]['_wp_attached_file'] ) ? $attachments_meta[ $selected_id ]['_wp_attached_file'] : '' );
 
-			list( $file_path ) = ewww_image_optimizer_attachment_path( $meta, $selected_id, $attached_file, false );
+			$file_path = ewww_image_optimizer_attachment_path( $meta, $selected_id, $attached_file, false );
 
 			if ( ! empty( $file_path ) && false !== strpos( $file_path, 'https://images-na.ssl-images-amazon.com' ) ) {
 				ewwwio_debug_message( "Cannot compress externally-hosted Amazon image $selected_id" );

@@ -1298,7 +1298,7 @@ class ExactDN extends Page_Parser {
 						$size = \array_pop( $size );
 
 						$this->debug_message( "detected $size" );
-						if ( false === $width && false === $height && 'full' !== $size && \array_key_exists( $size, $image_sizes ) ) {
+						if ( false === $width && false === $height && ! empty( $size ) && 'full' !== $size && \array_key_exists( $size, $image_sizes ) ) {
 							$width     = (int) $image_sizes[ $size ]['width'];
 							$height    = (int) $image_sizes[ $size ]['height'];
 							$transform = $image_sizes[ $size ]['crop'] ? 'resize' : 'fit';
@@ -1375,7 +1375,7 @@ class ExactDN extends Page_Parser {
 										$height    = $src_per_wp[2];
 										$transform = 'fit';
 										$this->debug_message( "no dims, using attachment dims, w=$width and h=$height" );
-									} elseif ( isset( $size ) && \array_key_exists( $size, $image_sizes ) && isset( $image_sizes[ $size ]['crop'] ) ) {
+									} elseif ( ! empty( $size ) && \array_key_exists( $size, $image_sizes ) && isset( $image_sizes[ $size ]['crop'] ) ) {
 										$transform = (bool) $image_sizes[ $size ]['crop'] ? 'resize' : 'fit';
 										$this->debug_message( 'attachment size set to crop' );
 									}

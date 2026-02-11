@@ -122,7 +122,6 @@ class Background_Process_Media extends Background_Process {
 		session_write_close();
 		\ewwwio_debug_message( '<b>' . __METHOD__ . '()</b>' );
 		ewwwio()->defer = false;
-		$max_attempts   = 15;
 		$attachment_id  = $item['attachment_id'];
 		if ( empty( $item['attempts'] ) && ! empty( $item['new'] ) ) {
 			ewwwio_debug_message( 'first attempt on new upload, going to sleep for a second' );
@@ -333,8 +332,8 @@ class Background_Process_Media extends Background_Process {
 			return;
 		}
 
-		$size    = 'full';
-		$queued  = 0;
+		$size   = 'full';
+		$queued = 0;
 		ewwwio_debug_message( "attachment id: $id" );
 
 		session_write_close();

@@ -1295,6 +1295,9 @@ function ewww_image_optimizer_get_webp_path( $file ) {
  * @return array Returns array of both append and replace WebP naming paths.
  */
 function ewww_image_optimizer_get_all_webp_paths( $path ) {
+	if ( empty( $path ) ) {
+		return array( '', '' );
+	}
 	$naming_mode = ewww_image_optimizer_get_option( 'ewww_image_optimizer_webp_naming_mode', 'append' );
 	$append      = $path . '.webp';
 	$info        = pathinfo( $path );
@@ -1331,8 +1334,12 @@ function ewww_image_optimizer_cleanup_legacy_webp( $path ) {
  * @return string URL to the existing WebP image.
  */
 function ewww_image_optimizer_get_webp_url( $path, $url ) {
+	$webp_urls = ewww_image_optimizer_get_all_webp_paths( $url );
+	if ( empty( $path ) ) {
+		return $webp_urls[0];
+	}
 	$webp_paths = ewww_image_optimizer_get_all_webp_paths( $path );
-	$webp_urls  = ewww_image_optimizer_get_all_webp_paths( $url );
+
 	if ( ewwwio_is_file( $webp_paths[0] ) ) {
 		return $webp_urls[0];
 	} elseif ( ewwwio_is_file( $webp_paths[1] ) ) {

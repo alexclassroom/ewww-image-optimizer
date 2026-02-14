@@ -173,6 +173,7 @@ That's not a question, but since I made it up, I'll answer it. See this resource
 *Release Date - TBD*
 
 * fixed: PHP warnings with offloaded media in the Media Library
+* fixed: WebP naming mode unable to be changed on Cloudflare sites
 
 = 8.4.0 =
 *Release Date - February 11, 2026*

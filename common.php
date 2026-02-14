@@ -10915,6 +10915,9 @@ function ewww_image_optimizer_webp_htaccess_permitted() {
 	) {
 		return false;
 	}
+	if ( ! empty( $_SERVER['SERVER_SOFTWARE'] ) && str_contains( strtolower( sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) ), 'nginx' ) ) {
+		return false;
+	}
 	return true;
 }
 

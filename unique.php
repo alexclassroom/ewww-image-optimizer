@@ -1280,7 +1280,12 @@ function ewww_image_optimizer_get_webp_path( $file ) {
 	$info        = pathinfo( $file );
 
 	if ( 'replace' === $naming_mode ) {
-		$webp_path = $info['dirname'] . '/' . $info['filename'] . '.webp';
+		if ( empty( $info['dirname'] ) || '.' === $info['dirname'] ) {
+			$info['dirname'] = '';
+		} else {
+			$info['dirname'] = trailingslashit( $info['dirname'] );
+		}
+		$webp_path = $info['dirname'] . $info['filename'] . '.webp';
 	} else {
 		$webp_path = $file . '.webp';
 	}
@@ -1301,7 +1306,12 @@ function ewww_image_optimizer_get_all_webp_paths( $path ) {
 	$naming_mode = ewww_image_optimizer_get_option( 'ewww_image_optimizer_webp_naming_mode', 'append' );
 	$append      = $path . '.webp';
 	$info        = pathinfo( $path );
-	$replace     = $info['dirname'] . '/' . $info['filename'] . '.webp';
+	if ( empty( $info['dirname'] ) || '.' === $info['dirname'] ) {
+		$info['dirname'] = '';
+	} else {
+		$info['dirname'] = trailingslashit( $info['dirname'] );
+	}
+	$replace = $info['dirname'] . $info['filename'] . '.webp';
 
 	if ( 'append' === $naming_mode ) {
 		return array( $append, $replace );

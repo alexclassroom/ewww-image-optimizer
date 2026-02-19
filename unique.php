@@ -1344,17 +1344,22 @@ function ewww_image_optimizer_cleanup_legacy_webp( $path ) {
  * @return string URL to the existing WebP image.
  */
 function ewww_image_optimizer_get_webp_url( $path, $url ) {
+	ewwwio_debug_message( "finding .webp path for source path $path and url $url" );
 	$webp_urls = ewww_image_optimizer_get_all_webp_paths( $url );
 	if ( empty( $path ) ) {
+		ewwwio_debug_message( "no path, returning {$webp_urls[0]}" );
 		return $webp_urls[0];
 	}
 	$webp_paths = ewww_image_optimizer_get_all_webp_paths( $path );
 
 	if ( ewwwio_is_file( $webp_paths[0] ) ) {
+		ewwwio_debug_message( "{$webp_paths[0]} found, returning {$webp_urls[0]}" );
 		return $webp_urls[0];
 	} elseif ( ewwwio_is_file( $webp_paths[1] ) ) {
+		ewwwio_debug_message( "{$webp_paths[1]} found, returning {$webp_urls[1]}" );
 		return $webp_urls[1];
 	}
+	ewwwio_debug_message( "no local file found, returning {$webp_urls[0]}" );
 	return $webp_urls[0];
 }
 

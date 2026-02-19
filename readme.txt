@@ -175,6 +175,7 @@ That's not a question, but since I made it up, I'll answer it. See this resource
 * fixed: PHP warnings with offloaded media in the Media Library
 * fixed: WebP naming mode unable to be changed on Cloudflare sites
 * fixed: incorrect WebP paths generated for images in root of S3 buckets (S3 Image Optimizer compat)
+* fixed: JS/Picture WebP uses incorrect URLs after naming mode is changed and existing .webp files have not been renamed
 
 = 8.4.0 =
 *Release Date - February 11, 2026*
